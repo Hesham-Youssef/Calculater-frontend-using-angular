@@ -1,0 +1,3 @@
+<div class="keypad">
+    <button class={{key.type}} *ngFor="let key of keys" (click)="pressed.emit(key)">{{key.value}}</button>
+</div>

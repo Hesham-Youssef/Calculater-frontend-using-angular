@@ -1,0 +1,52 @@
+.keypad{
+    width: 480px;
+    margin: 0%;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+*{
+    font-size: x-large;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+button{
+    border: none;
+    width: 100px;
+    height: 50px;
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+button:active{
+    opacity: 0.6;
+}
+
+
+.o{
+    background-color: #cfcece;
+    margin: 5px;
+    height: 70px;
+    height: 60px;
+}
+
+.n{
+    background-color: #fafafa;
+    margin: 5px;
+    height: 70px;
+    height: 60px;
+}
+
+.e{
+    background-color: #8abae0;
+    margin: 5px;
+    height: 70px;
+    height: 60px;
+}

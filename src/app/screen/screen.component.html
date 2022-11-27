@@ -1,0 +1,14 @@
+<div class="calc">
+    <div class="display">
+        <div class="upperScreen">
+            <app-upper-screen [expression]="upperScExp"></app-upper-screen>
+        </div>
+        <div class="screen">
+            <h2>{{expression}}</h2>
+        </div>
+    </div>
+
+    <div class="keypad">
+        <app-keypad (pressed)="changeExp($event)"></app-keypad>
+    </div>
+</div>
