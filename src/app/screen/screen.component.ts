@@ -45,9 +45,9 @@ export class ScreenComponent implements OnInit {
 			if(this.expression == "Error")
 				this.expression = '';
       this.expression = this.expression.slice(0, -1);
-    }else if(key.type == 'o' && this.expression != '' && this.expression != "Error"){
+    }else if(key.type == 'o' && this.expression != "Error" && this.expression != "."){
       if(['+','-','x','÷'].includes(key.value)){
-        if(!['+','-','x','÷'].includes(this.upperScExp[this.upperScExp.length-1])){
+        if(!['+','-','x','÷'].includes(this.upperScExp[this.upperScExp.length-1]) && this.expression != ''){
           this.upperScExp += this.expression + ' ' + key.value;
           this.expression = '';
         }else if(this.expression != ''){
@@ -57,9 +57,9 @@ export class ScreenComponent implements OnInit {
 													this.expression = '';
                           this.upperScExp = res + ' ' + key.value;
                           this.expression = res;});
-				}else
+				}else if(this.upperScExp != '')
           this.upperScExp = this.upperScExp.slice(0, -2) + ' ' + key.value;
-      }else if(['%','1/x','x^2','sqrt(x)', 'neg'].includes(key.value)){
+      }else if(['%','1/x','x^2','sqrt(x)', 'neg'].includes(key.value) && this.expression != ''){
         switch(key.value){
           case '%':
             this.http.getResult(this.expression + ' ÷ ' + '100').
@@ -91,7 +91,7 @@ export class ScreenComponent implements OnInit {
         }
       }
     }else if(key.type == 'e'){
-			if(this.expression != '' && this.upperScExp != ''){
+			if(this.expression != '' && this.upperScExp != '' && this.expression != "."){
 				this.upperScExp += ' ' + this.expression;
 				if(!['+','-','x','÷'].includes(this.upperScExp[this.upperScExp.length-1]))
 					this.http.getResult(this.upperScExp).
